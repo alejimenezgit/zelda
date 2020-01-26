@@ -1,3 +1,160 @@
-.myCanvas{
-    border: 3px solid;
+body{
+    background-image: url("/fotos/background.jpg");
+}
+
+.titleGame{
+    text-align: center;
+    widows: 100%;
+}
+
+.sizeTitleGame {
+    height: 250px;
+}
+
+#gba{
+    width: 1300px;
+    height: 700px;
+    background-color: #3f4694;
+    border-radius: 40px 40px 150px 150px;
+    margin: 0px auto 0px auto;
+    position: relative;
+}
+
+#game{
+    width: 900px;
+    height: 550px;
+    background-color: black;
+    border-radius: 10px;
+    margin: 0px auto 0px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#marker{
+    width: 900px;
+    height: 60px;
+    background-color: white;
+    border-radius: 10px 10px 0px 0px;
+    margin: 0px auto 0px auto;
+    position: absolute;
+}
+/*
+.button{
+    background-color: grey;
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.buttonA{
+    top: 350px;
+    left: 1200px;
+}
+
+.buttonB{
+    top: 390px;
+    left: 1150px;
+}*/
+
+.buttonA{
+    background-color: grey;
+    width: 50px;
+    height: 50px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    top: 330px;
+    left: 1200px;
+}
+
+.buttonB{
+    background-color: grey;
+    width: 50px;
+    height: 50px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 50%;
+    top: 390px;
+    left: 1140px;
+}
+
+.buttonsStartSelect{
+    position: absolute;
+    top: 500px;
+    left: 80px;
+}
+
+.buttonSelect{
+    background-color: grey;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: right;
+    margin: 0px 0px 0px 30px;
+}
+
+.buttonStart{
+    background-color: grey;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: right;
+}
+
+.select{
+    margin: 20px;
+}
+.start {
+    margin: 20px;
+}
+
+.cross {
+    background: grey;
+    height: 100px;
+    position: absolute;
+    width: 20px;
+    top: 280px;
+    left: 85px;
+}
+
+.cross:after {
+    background: grey;
+    content: "";
+    height: 20px;
+    left: -40px;
+    position: absolute;
+    top: 40px;
+    width: 100px;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+#splash{
+    width: 900px;
+    height: 550px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0px auto 0px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
