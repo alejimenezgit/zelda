@@ -2,6 +2,11 @@ body{
     background-image: url("/fotos/background.jpg");
 }
 
+#splash{
+    background-image: url("/fotos/splashScreen2.gif");
+    background-size: cover;
+}
+
 .titleGame{
     text-align: center;
     widows: 100%;
@@ -22,12 +27,12 @@ body{
 
 #game{
     width: 900px;
-    height: 550px;
-    background-color: black;
-    border-radius: 10px;
+    height: 490px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
     margin: 0px auto 0px auto;
     position: absolute;
-    top: 50%;
+    top: 53.5%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -35,9 +40,11 @@ body{
 #marker{
     width: 900px;
     height: 60px;
-    background-color: white;
+    background-color: black;
     border-radius: 10px 10px 0px 0px;
     margin: 0px auto 0px auto;
+    top: 10%;
+    left: 15.4%;
     position: absolute;
 }
 /*
@@ -77,6 +84,11 @@ body{
     border-radius: 50%;
     top: 330px;
     left: 1200px;
+}
+
+.buttonA:active{
+
+    background-color: red;
 }
 
 .buttonB{
@@ -119,9 +131,13 @@ body{
 
 .select{
     margin: 20px;
+    font-family: 'Lobster';
+    font-size: 19px;
 }
 .start {
     margin: 20px;
+    font-size: 19px;
+    font-family: 'Lobster';
 }
 
 .cross {
@@ -154,7 +170,38 @@ body{
     border-radius: 10px;
     margin: 0px auto 0px auto;
     position: absolute;
-    top: 50%;
+    top: 49.2%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.startKey{
+    color: white;
+    position: relative;
+    top: 80%;
+    left: 10%;
+    font-size: 30px;
+    font-family: 'Courgette', cursive; 
+}
+
+.box{
+    background-color: grey;
+   /* margin: 10px; */
+    padding: 10px;
+    width: 26px;
+    height: 29px;
+    text-align: center;
+}
+
+.inline {
+    display: inline;
+}
+
+td {
+    background-color: #F12F2F;
+    padding: 12px;
+    width: 26.5px;
+    height: 26.65px;
+    
+}
+  
