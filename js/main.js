@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 
     // recojer valores
-    let game = document.getElementById('game');
+    let demo = document.getElementById('demo');
     let splash = document.getElementById('splash');
 
     // splash screen
@@ -23,31 +23,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function skipScreen(){
-        game.classList.remove('hidden');
+        demo.classList.remove('hidden');
         splash.classList.add('hidden');
+
+        // comience el juego
+        start();
     }
 
     // pintar pantalla del juego
     function printGame (){
-        var tbdy = document.createElement('tbody');
-        tbdy.id = "idtbody";
-        var total = 0;
-        for (let x = 0; x < 10; x++) {
-          var tr = document.createElement('tr');
-          for (var y = 1; y <= 17; y++) {
-              var td = document.createElement('td');
-              td.id = total;
-              total++;
-              tr.appendChild(td);
-          }
-          tbdy.appendChild(tr);
-        }
-        game.append(tbdy);
     }
 
     // empezar
     function start(){
-        
+        Game.init = function () {};
+        Game.update = function (delta) {};
+        Game.render = function () {};
+
+        window.onload = function () {
+            var context = document.getElementById('demo').getContext('2d');
+            Game.run(context);
+        };
     }
 
     // pasar valores necesarios a game.js

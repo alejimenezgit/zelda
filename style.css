@@ -25,10 +25,9 @@ body{
     position: relative;
 }
 
-#game{
-    width: 900px;
-    height: 490px;
-    background-color: white;
+#demo{
+    width: 896px;
+    height: 515px;
     border-radius: 0px 0px 10px 10px;
     margin: 0px auto 0px auto;
     position: absolute;
@@ -38,13 +37,13 @@ body{
 }
 
 #marker{
-    width: 900px;
+    width: 896px;
     height: 60px;
     background-color: black;
     border-radius: 10px 10px 0px 0px;
     margin: 0px auto 0px auto;
-    top: 10%;
-    left: 15.4%;
+    top: 8%;
+    left: 15.5%;
     position: absolute;
 }
 /*
@@ -165,7 +164,7 @@ body{
 
 #splash{
     width: 900px;
-    height: 550px;
+    height: 590px;
     background-color: white;
     border-radius: 10px;
     margin: 0px auto 0px auto;
