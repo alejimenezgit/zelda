@@ -1,16 +1,16 @@
-// variables globales
-//
-//
-
 document.addEventListener('DOMContentLoaded', (event) => {
 
     // ---------------------- START ---------------------------
-    // window.onload = function () {
-        var context = document.getElementById('demo').getContext('2d');
-        var asdfasdf = new Game;
-        asdfasdf.run(context);
-    // };
+    var context = document.getElementById('demo').getContext('2d');
+    var game = new Game(new imgs(), new keyboard(),new map());
+    game.run(context);
 })
+
+
+
+
+
+
 
 
 /*

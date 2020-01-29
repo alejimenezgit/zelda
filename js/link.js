@@ -1,5 +1,5 @@
 class link{
-    constructor(map, x, y){
+    constructor(map, x, y, img){
         this.map = map;
         this.x = x;
         this.y = y;

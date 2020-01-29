@@ -1,15 +1,24 @@
 class Game {
-    constructor(){
-        this.init = function () {};
-        this.update = function (delta) {};
-        this.render = function () {};
+    constructor(img, keyboards, map){
+    this.img                    = img;
+        this.keyboards          = keyboards;
+        this.map                = map;/*
+        this.init               = function () {};
+        this.update             = function (delta) {};
+        this.render             = function () {};*/
+        this.ctx                = undefined;
+        this.previousElapsed    = 0;
+        this.link               = undefined;
+        this.tileAtlas          = undefined;
+        this.camera             = undefined;
+        this.link               = undefined;               
     }
 
     run = function (context) {
         this.ctx = context;
         this._previousElapsed = 0;
-    
         var p = this.load();
+
         Promise.all(p).then(function (loaded) {
             this.init();
             window.requestAnimationFrame(this.tick);
@@ -29,67 +38,67 @@ class Game {
     
         this.update(delta);
         this.render();
-    }.bind(Game);
+    }.bind(this);
 
     load = function () {
         return [
-            img.loadImage('tiles', '../fotos/tiles.png'),
-            img.loadImage('hero', '../fotos/character.png')
+            this.img.loadImage('tiles', '../fotos/tiles.png'),
+            this.img.loadImage('hero', '../fotos/character.png')
         ];
     };
 
     init = function () {
-        Keyboard.listenForEvents(
-            [Keyboard.LEFT, Keyboard.RIGHT, Keyboard.UP, Keyboard.DOWN]);
-        this.tileAtlas = img.getImage('tiles');
-    
-        this.hero = new Hero(map, 160, 160);
-        this.camera = new Camera(map, 832, 515);
-        this.camera.follow(this.hero);
-    };
+        this.keyboards.listenForEvents(
+            [this.keyboards.left, this.keyboards.right,
+             this.keyboards.up, this.keyboards.down]);
+        this.tileAtlas = this.img.getImage('tiles');
+        this.link = new link(this.map, 160, 160,this.img);
+        this.camera = new camera(this.map, 832, 515);
+        this.camera.follow(this.link);
+    }.bind(this);
 
     update = function (delta) {
         // handle hero movement with arrow keys
         var dirx = 0;
         var diry = 0;
-        if (Keyboard.isDown(Keyboard.LEFT)) { dirx = -1; }
-        else if (Keyboard.isDown(Keyboard.RIGHT)) { dirx = 1; }
-        else if (Keyboard.isDown(Keyboard.UP)) { diry = -1; }
-        else if (Keyboard.isDown(Keyboard.DOWN)) { diry = 1; }
+        if (this.keyboards.isDown(this.keyboards.left)) { dirx = -1; }
+        else if (this.keyboards.isDown(this.keyboards.right)) { dirx = 1; }
+        else if (this.keyboards.isDown(this.keyboards.up)) { diry = -1; }
+        else if (this.keyboards.isDown(this.keyboards.down)) { diry = 1; }
     
-        this.hero.move(delta, dirx, diry);
+        this.link.move(delta, dirx, diry);
         this.camera.update();
-    };
+    }.bind(this);
 
     drawLayer = function (layer) {
-        var startCol = Math.floor(this.camera.x / map.tsize);
-        var endCol = startCol + (this.camera.width / map.tsize);
-        var startRow = Math.floor(this.camera.y / map.tsize);
-        var endRow = startRow + (this.camera.height / map.tsize);
-        var offsetX = -this.camera.x + startCol * map.tsize;
-        var offsetY = -this.camera.y + startRow * map.tsize;
+        var startCol = Math.floor(this.camera.x / this.map.tsize);
+        var endCol = startCol + (this.camera.width / this.map.tsize);
+        var startRow = Math.floor(this.camera.y / this.map.tsize);
+        var endRow = startRow + (this.camera.height / this.map.tsize);
+        var offsetX = -this.camera.x + startCol * this.map.tsize;
+        var offsetY = -this.camera.y + startRow * this.map.tsize;
     
         for (var c = startCol; c <= endCol; c++) {
             for (var r = startRow; r <= endRow; r++) {
-                var tile = map.getTile(layer, c, r);
-                var x = (c - startCol) * map.tsize + offsetX;
-                var y = (r - startRow) * map.tsize + offsetY;
+                var tile = this.map.getTile(layer, c, r);
+                var x = (c - startCol) * this.map.tsize + offsetX;
+                var y = (r - startRow) * this.map.tsize + offsetY;
                 if (tile !== 0) { // 0 => empty tile
                     this.ctx.drawImage(
                         this.tileAtlas, // image
-                        (tile - 1) * map.tsize, // source x
+                        (tile - 1) * this.map.tsize, // source x
                         0, // source y
-                        map.tsize, // source width
-                        map.tsize, // source height
+                        this.map.tsize, // source width
+                        this.map.tsize, // source height
                         Math.round(x),  // target x
                         Math.round(y), // target y
-                        map.tsize, // target width
-                        map.tsize // target height
+                        this.map.tsize, // target width
+                        this.map.tsize // target height
                     );
                 }
             }
         }
-    };
+    }.bind(this);
 
     _drawGrid = function () {
         var width = map.cols * map.tsize;
@@ -111,12 +120,12 @@ class Game {
             this.ctx.lineTo(x, height);
             this.ctx.stroke();
         }
-    };
+    }.bind(this);
 
     render = function () {
         // draw map background layer
-        this._drawLayer(0);
-    
+        this.drawLayer(0);
+    /*
         // draw main character
         this.ctx.drawImage(
             this.hero.image,
@@ -124,9 +133,9 @@ class Game {
             this.hero.screenY - this.hero.height / 2);
     
         // draw map top layer
-        this._drawLayer(1);
+        this.drawLayer(1);
     
-        this._drawGrid();
-    };
+        this.drawGrid();*/
+    }.bind(this);
 }
 

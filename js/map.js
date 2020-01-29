@@ -37,18 +37,18 @@ class map{
         ]];
     }
 
-    getTile = function (layer, col, row) {
-        return this.layers[layer][row * this.cols + col];
+    getTile = function (layer, column, rowt) {
+        return this.layers[layer][rowt * this.cols + column];
     };
 
     isSolidTileAtXY = function (x, y) {
-        var col = Math.floor(x / this.tsize);
-        var row = Math.floor(y / this.tsize);
+        var column = Math.floor(x / this.tsize);
+        var rowt = Math.floor(y / this.tsize);
 
         // tiles 3 and 5 are solid -- the rest are walkable
         // loop through all layers and return TRUE if any tile is solid
         return this.layers.reduce(function (res, layer, index) {
-            var tile = this.getTile(index, col, row);
+            var tile = this.getTile(index, column, rowt);
             var isSolid = tile === 3 || tile === 5;
             return res || isSolid;
         }.bind(this), false);
