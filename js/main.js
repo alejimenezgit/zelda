@@ -1,16 +1,27 @@
 // variables globales
+//
+//
 
 document.addEventListener('DOMContentLoaded', (event) => {
 
-    // recojer valores
+    // ---------------------- START ---------------------------
+    // window.onload = function () {
+        var context = document.getElementById('demo').getContext('2d');
+        var asdfasdf = new Game;
+        asdfasdf.run(context);
+    // };
+})
+
+
+/*
+    ----------------------- SPLASH -----------------------------
+
+   // recojer valores
     let demo = document.getElementById('demo');
     let splash = document.getElementById('splash');
 
-    // splash screen
+    //  ---------------------- splash screen ---------------------- 
     window.onload = function() { document.onkeypress = knowKey; }
-    printGame();
-
-    // añadirlo en game?
     function knowKey(evObject) {
         switch(String.fromCharCode(evObject.which))
         {
@@ -21,7 +32,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 break;
         }
     }
-
     function skipScreen(){
         demo.classList.remove('hidden');
         splash.classList.add('hidden');
@@ -29,25 +39,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // comience el juego
         start();
     }
-
-    // pintar pantalla del juego
-    function printGame (){
-    }
-
-    // empezar
-    function start(){
-        Game.init = function () {};
-        Game.update = function (delta) {};
-        Game.render = function () {};
-
-        window.onload = function () {
-            var context = document.getElementById('demo').getContext('2d');
-            Game.run(context);
-        };
-    }
-
-    // pasar valores necesarios a game.js
-//    game = new Game();
-
-
-})
+*/
