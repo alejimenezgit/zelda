@@ -4,14 +4,12 @@ class keyboard{
         this.right  = 39;
         this.up     = 38;
         this.down   = 40;
-        this.enter  = 13;
         this.keys   = {};
     }
 
     listenForEvents = function (keys) {
-        window.addEventListener('keydown', this._onKeyDown);
-        window.addEventListener('keyup', this._onKeyUp);
-    
+        window.addEventListener('keydown', this.onKeyDown);
+        window.addEventListener('keyup', this.onKeyUp);
         keys.forEach(function (key) {
             this.keys[key] = false;
         }.bind(this));
@@ -21,15 +19,15 @@ class keyboard{
         var keyCode = event.keyCode;
         if (keyCode in this.keys) {
             event.preventDefault();
-            this._keys[keyCode] = true;
+            this.keys[keyCode] = true;
         }
     }.bind(this);
 
-    _onKeyUp = function (event) {
+    onKeyUp = function (event) {
         var keyCode = event.keyCode;
         if (keyCode in this.keys) {
             event.preventDefault();
-            this._keys[keyCode] = false;
+            this.keys[keyCode] = false;
         }
     }.bind(this);
 

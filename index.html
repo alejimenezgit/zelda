@@ -23,7 +23,7 @@
       </section>
       
       <section class="buttonsStartSelect">
-        <div class="start">
+        <div id="start">
           <label> Start </label>
           <button class="buttonSelect"></button>
         </div>
@@ -33,10 +33,21 @@
         </div>
       </section>
       
-      <div id="marker"></div>
-      <canvas class="" id="demo" width="832" height="515"></canvas>
-      <div class="hidden" id="splash">
-        <label class="startKey">  Start (Press e) </label>
+      <div class="hidden" id="marker">
+        <div class="hearts">
+          <img class="heart" src="/fotos/heart.gif">
+          <img class="heart" src="/fotos/heart.gif">
+          <img class="heart" src="/fotos/heart.gif">
+          <img class="heart" src="/fotos/halfheart.gif">
+        </div>
+        <div class="rupees">
+          <label class="countRupees"> 0 </label>
+          <img class="rupee" src="/fotos/bluerupee.gif">
+        </div>
+      </div>
+      <canvas class="hidden" id="demo" width="832" height="515"></canvas>
+      <div id="splash">
+        <label class="startKey">  Start (Press the button Start) </label>
       </div>
       
       <button class="buttonA"> A </button>

@@ -1,42 +1,18 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-
-    // ---------------------- START ---------------------------
+    
     var context = document.getElementById('demo').getContext('2d');
-    var game = new Game(new imgs(), new keyboard(),new map());
-    game.run(context);
-})
+    var game = new Game(new imgs(), new keyboard() ,new map());
+    const startBtn = document.getElementById('start');
 
+    startBtn.addEventListener('click', start);
 
-
-
-
-
-
-
-/*
-    ----------------------- SPLASH -----------------------------
-
-   // recojer valores
-    let demo = document.getElementById('demo');
-    let splash = document.getElementById('splash');
-
-    //  ---------------------- splash screen ---------------------- 
-    window.onload = function() { document.onkeypress = knowKey; }
-    function knowKey(evObject) {
-        switch(String.fromCharCode(evObject.which))
-        {
-            case 'e':
-                skipScreen();
-                break;
-            default:
-                break;
-        }
-    }
-    function skipScreen(){
+    function start(keyboards){
+        let demo = document.getElementById('demo');
+        let splash = document.getElementById('splash');
+        let maker = document.getElementById('marker');
         demo.classList.remove('hidden');
         splash.classList.add('hidden');
-
-        // comience el juego
-        start();
+        maker.classList.remove('hidden');
+        game.run(context); 
     }
-*/
+});

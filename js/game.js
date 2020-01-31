@@ -1,15 +1,13 @@
 class Game {
     constructor(img, keyboards, map){
-    this.img                    = img;
+        this.img                    = img;
         this.keyboards          = keyboards;
-        this.map                = map;/*
-        this.init               = function () {};
-        this.update             = function (delta) {};
-        this.render             = function () {};*/
+        this.map                = map;
         this.ctx                = undefined;
         this.previousElapsed    = 0;
         this.link               = undefined;
         this.tileAtlas          = undefined;
+        this.rupee              = undefined;
         this.camera             = undefined;
         this.link               = undefined;               
     }
@@ -43,7 +41,8 @@ class Game {
     load = function () {
         return [
             this.img.loadImage('tiles', '../fotos/tiles.png'),
-            this.img.loadImage('hero', '../fotos/character.png')
+            this.img.loadImage('hero', '../fotos/character.png'),
+            this.img.loadImage('bluerubee', '../fotos/bluerupee.gif')
         ];
     };
 
@@ -52,6 +51,7 @@ class Game {
             [this.keyboards.left, this.keyboards.right,
              this.keyboards.up, this.keyboards.down]);
         this.tileAtlas = this.img.getImage('tiles');
+        this.rupee = this.img.getImage('bluerubee');
         this.link = new link(this.map, 160, 160,this.img);
         this.camera = new camera(this.map, 832, 515);
         this.camera.follow(this.link);
@@ -83,24 +83,38 @@ class Game {
                 var tile = this.map.getTile(layer, c, r);
                 var x = (c - startCol) * this.map.tsize + offsetX;
                 var y = (r - startRow) * this.map.tsize + offsetY;
-                if (tile !== 0) { // 0 => empty tile
+                if (tile !== 0) {                       // 0 => empty tile
                     this.ctx.drawImage(
-                        this.tileAtlas, // image
-                        (tile - 1) * this.map.tsize, // source x
-                        0, // source y
-                        this.map.tsize, // source width
-                        this.map.tsize, // source height
-                        Math.round(x),  // target x
-                        Math.round(y), // target y
-                        this.map.tsize, // target width
-                        this.map.tsize // target height
+                        this.tileAtlas,                 // image
+                        (tile - 1) * this.map.tsize,    // source x
+                        0,                              // source y
+                        this.map.tsize,                 // source width
+                        this.map.tsize,                 // source height
+                        Math.round(x),                  // target x
+                        Math.round(y),                  // target y
+                        this.map.tsize,                 // target width
+                        this.map.tsize                  // target height
                     );
                 }
             }
         }
     }.bind(this);
 
-    _drawGrid = function () {
+    render = function () {
+        this.drawLayer(0);
+        this.ctx.drawImage(
+            this.link.image,
+            this.link.screenX - this.link.width / 2,
+            this.link.screenY - this.link.height / 2);
+        this.drawLayer(1);
+    }.bind(this);
+}
+
+/*    
+
+        this.drawGrid();  en el render
+
+_drawGrid = function () {
         var width = map.cols * map.tsize;
         var height = map.rows * map.tsize;
         var x, y;
@@ -122,20 +136,4 @@ class Game {
         }
     }.bind(this);
 
-    render = function () {
-        // draw map background layer
-        this.drawLayer(0);
-    /*
-        // draw main character
-        this.ctx.drawImage(
-            this.hero.image,
-            this.hero.screenX - this.hero.width / 2,
-            this.hero.screenY - this.hero.height / 2);
-    
-        // draw map top layer
-        this.drawLayer(1);
-    
-        this.drawGrid();*/
-    }.bind(this);
-}
-
+*/

@@ -45,6 +45,7 @@ body{
     top: 8%;
     left: 15.5%;
     position: absolute;
+    display: flex;
 }
 /*
 .button{
@@ -133,7 +134,8 @@ body{
     font-family: 'Lobster';
     font-size: 19px;
 }
-.start {
+
+#start {
     margin: 20px;
     font-size: 19px;
     font-family: 'Lobster';
@@ -203,4 +205,32 @@ td {
     height: 26.65px;
     
 }
-  
+
+.heart{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    bottom: 10px;
+}
+
+.hearts{
+    width: 400px;
+}
+
+.rupee{
+    width: 110px;
+    height: 100px;
+    position: relative;
+    bottom: 36px;
+}
+
+.rupees{
+    margin-left: 440px;
+}
+
+.countRupees{
+    top: 25px;
+    font-size: 20px;
+    position: relative;
+    color: white;
+}
