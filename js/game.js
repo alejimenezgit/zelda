@@ -8,8 +8,7 @@ class Game {
         this.link               = undefined;
         this.tileAtlas          = undefined;
         this.rupee              = undefined;
-        this.camera             = undefined;
-        this.link               = undefined;               
+        this.camera             = undefined;              
     }
 
     run = function (context) {
@@ -42,7 +41,9 @@ class Game {
         return [
             this.img.loadImage('tiles', '../fotos/tiles.png'),
             this.img.loadImage('hero', '../fotos/zelda.gif'),
-            this.img.loadImage('bluerubee', '../fotos/bluerupee.gif')
+            this.img.loadImage('heroturn', '../fotos/turnzelda.gif'),
+            this.img.loadImage('heroright', '../fotos/rightzelda.gif'),
+            this.img.loadImage('heroleft', '../fotos/leftzelda.gif')
         ];
     };
 
@@ -51,20 +52,29 @@ class Game {
             [this.keyboards.left, this.keyboards.right,
              this.keyboards.up, this.keyboards.down]);
         this.tileAtlas = this.img.getImage('tiles');
-        this.rupee = this.img.getImage('bluerubee');
         this.link = new link(this.map, 160, 160,this.img);
         this.camera = new camera(this.map, 832, 515);
         this.camera.follow(this.link);
     }.bind(this);
 
     update = function (delta) {
-        // handle hero movement with arrow keys
-        var dirx = 0;
-        var diry = 0;
-        if (this.keyboards.isDown(this.keyboards.left)) { dirx = -1; }
-        else if (this.keyboards.isDown(this.keyboards.right)) { dirx = 1; }
-        else if (this.keyboards.isDown(this.keyboards.up)) { diry = -1; }
-        else if (this.keyboards.isDown(this.keyboards.down)) { diry = 1; }
+        var dirx = 0, diry = 0;
+        if (this.keyboards.isDown(this.keyboards.left)) { 
+            dirx = -1; 
+            this.link.image = this.img.getImage('heroleft');
+        }
+        else if (this.keyboards.isDown(this.keyboards.right)) { 
+            dirx = 1; 
+            this.link.image = this.img.getImage('heroright');
+        }
+        else if (this.keyboards.isDown(this.keyboards.up)) { 
+            diry = -1; 
+            this.link.image = this.img.getImage('heroturn');
+        }
+        else if (this.keyboards.isDown(this.keyboards.down)) { 
+            diry = 1; 
+            this.link.image = this.img.getImage('hero');
+        }
     
         this.link.move(delta, dirx, diry);
         this.camera.update();
@@ -110,11 +120,9 @@ class Game {
     }.bind(this);
 }
 
-/*    
-
-        this.drawGrid();  en el render
-
-_drawGrid = function () {
+/*
+        this.drawGrid();
+    _drawGrid = function () {
         var width = map.cols * map.tsize;
         var height = map.rows * map.tsize;
         var x, y;
@@ -135,5 +143,6 @@ _drawGrid = function () {
             this.ctx.stroke();
         }
     }.bind(this);
+
 
 */
