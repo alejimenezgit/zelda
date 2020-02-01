@@ -41,7 +41,7 @@ class Game {
     load = function () {
         return [
             this.img.loadImage('tiles', '../fotos/tiles.png'),
-            this.img.loadImage('hero', '../fotos/character.png'),
+            this.img.loadImage('hero', '../fotos/zelda.gif'),
             this.img.loadImage('bluerubee', '../fotos/bluerupee.gif')
         ];
     };

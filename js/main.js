@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     startBtn.addEventListener('click', start);
 
-    function start(keyboards){
+    function start(){
         let demo = document.getElementById('demo');
         let splash = document.getElementById('splash');
         let maker = document.getElementById('marker');
