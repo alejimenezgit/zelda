@@ -1,9 +1,9 @@
 body{
-    background-image: url("/fotos/background.jpg");
+    background-image: url("./fotos/background.jpg");
 }
 
 #splash{
-    background-image: url("/fotos/splashScreen2.gif");
+    background-image: url("./fotos/splashScreen2.gif");
     background-size: cover;
 }
 
