@@ -23,7 +23,7 @@ class map{
             4, 3, 3, 3, 4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4,
             4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4,
             4, 0, 0, 0, 4, 6, 0, 0, 0, 5, 0, 6, 0, 0, 4,
-            4, 4, 4, 0, 3, 0, 5, 0, 0, 0, 6, 8, 6, 0, 4,
+            4, 4, 4, 0, 3, 0, 5, 9, 0, 0, 6, 8, 6, 0, 4,
             4, 3, 3, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 4,
             4, 0, 0, 0, 0, 0, 7, 0, 5, 0, 0, 0, 0, 0, 3,
             4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -44,15 +44,25 @@ class map{
     isSolidTileAtXY = function (x, y) {
         var column = Math.floor(x / this.tsize);
         var rowt = Math.floor(y / this.tsize);
-
-        // tiles 3 and 5 are solid -- the rest are walkable
-        // loop through all layers and return TRUE if any tile is solid
+        
         return this.layers.reduce(function (res, layer, index) {
             var tile = this.getTile(index, column, rowt);
             var isSolid = tile === 3 || tile === 5 || tile === 7;
+
             return res || isSolid;
         }.bind(this), false);
     };
+
+    isEnemy = function (x, y) {
+        var column = Math.floor(x / this.tsize);
+        var rowt = Math.floor(y / this.tsize);
+        var enemy = false;
+        return this.layers.reduce(function (res, layer, index) {
+            var tile = this.getTile(index, column, rowt);
+            if(tile === 9){ enemy = true; };
+            return res || enemy;
+        }.bind(this), false);
+    }
 
     getCol = function (x) {
         return Math.floor(x / this.tsize);

@@ -28,7 +28,7 @@ class link{
         var row, col;
         // -1 in right and bottom is because image ranges from 0..63
         // and not up to 64
-        var left = this.x - this.width / 2;
+        var left = this.x - this.width / 2 ;
         var right = this.x + this.width / 2 - 1;
         var top = this.y - this.height / 2;
         var bottom = this.y + this.height / 2 - 1;
@@ -39,8 +39,16 @@ class link{
             this.map.isSolidTileAtXY(right, top) ||
             this.map.isSolidTileAtXY(right, bottom) ||
             this.map.isSolidTileAtXY(left, bottom);
+
+        var enemy =
+            this.map.isEnemy(left, top) ||
+            this.map.isEnemy(right, top) ||
+            this.map.isEnemy(right, bottom) ||
+            this.map.isEnemy(left, bottom);
+
+         if(enemy) { console.log('enemigo encontrado')}   
         if (!collision) { return; }
-    
+            
         if (diry > 0) {
             row = this.map.getRow(bottom);
             this.y = -this.height / 2 + this.map.getY(row);

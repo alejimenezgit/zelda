@@ -8,7 +8,8 @@ class Game {
         this.link               = undefined;
         this.tileAtlas          = undefined;
         this.rupee              = undefined;
-        this.camera             = undefined;              
+        this.camera             = undefined;  
+        this.count              = 0;            
     }
 
     run = function (context) {
@@ -75,7 +76,6 @@ class Game {
             diry = 1; 
             this.link.image = this.img.getImage('hero');
         }
-    
         this.link.move(delta, dirx, diry);
         this.camera.update();
     }.bind(this);
@@ -87,7 +87,7 @@ class Game {
         var endRow = startRow + (this.camera.height / this.map.tsize);
         var offsetX = -this.camera.x + startCol * this.map.tsize;
         var offsetY = -this.camera.y + startRow * this.map.tsize;
-    
+
         for (var c = startCol; c <= endCol; c++) {
             for (var r = startRow; r <= endRow; r++) {
                 var tile = this.map.getTile(layer, c, r);
