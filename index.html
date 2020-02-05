@@ -1,75 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
-  <link href="https://fonts.googleapis.com/css?family=Courgette|Lobster&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
-  <link rel="stylesheet" href="./style.css">
-  <title>The Legend of Zelda</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Lobster&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css"/>
+    <link rel="stylesheet" href="./style.css">
+    <title>The Legend of Zelda</title>
+  </head>
 
-<body>
-  <div class="titleGame">
-    <img class="sizeTitleGame" src="./fotos/title.png"> 
-  </div>
-  <section>
-    <div id="gba">
-      
-      <section> 
-        <div class="cross"></div>
-      </section>
-      
-      <section class="buttonsStartSelect">
-        <div id="start">
-          <label> Start </label>
-          <button class="buttonSelect"></button>
-        </div>
-        <div id="select">
-          <label> Select </label>
-          <button class="buttonStart"></button>
-        </div>
-      </section>
-      
-      <div class="hidden" id="marker">
-        <div class="hearts">
-          <img class="heart" src="./fotos/heart.gif">
-          <img class="heart" src="./fotos/heart.gif">
-          <img class="heart" src="./fotos/heart.gif">
-          <img class="heart" src="./fotos/halfheart.gif">
-        </div>
-        <div class="rupees">
-          <label class="countRupees"> 0 </label>
-          <img class="rupee" src="./fotos/bluerupee.gif">
-        </div>
-      </div>
-      <canvas class="hidden" id="demo" width="832" height="515"></canvas>
-      <div id="splash">
-        <label class="startKey">  Start (Press the button Start) </label>
-      </div>
-      <div id="pause" class="hidden">
-        <div>
-          <button id="buttonRest"> Reset </button>
-          <button id="buttonContinuar"> Continue </button>
-          <div class="map"> 
-            <!-- <img src="../fotos/mapa.jpg"> -->
+  <body>
+    <div class="titleGame">
+      <img class="sizeTitleGame" src="./fotos/title.png"> 
+    </div>
+    <section>
+      <div id="gba">
+        <section> 
+          <div class="cross"></div>
+        </section>
+        <section class="buttonsStartSelect">
+          <div id="start">
+            <label> Start </label>
+            <button class="buttonSelect"></button>
+          </div>
+          <div id="select">
+            <label> Pause </label>
+            <button class="buttonStart"></button>
+          </div>
+          <div id="restart">
+            <label> Restart </label>
+            <button class="buttonRest"></button>
+          </div>
+        </section>
+        <div class="hidden" id="marker">
+          <div class="hearts">
+            <img class="heart" src="./fotos/heart.gif">
+            <img class="heart" src="./fotos/heart.gif">
+            <img class="heart" src="./fotos/heart.gif">
+            <img class="heart" src="./fotos/halfheart.gif">
+          </div>
+          <div class="rupees">
+            <label class="countRupees"> 0 </label>
+            <img class="rupee" src="./fotos/bluerupee.gif">
           </div>
         </div>
+        <canvas class="hidden" id="demo" width="832" height="515"></canvas>
+        <div id="splash">
+          <label class="startKey">  Start (Press the button Start) </label>
+        </div>
+        <div id="pause" class="hidden">
+            <div class="txtPause"> Pause </div>
+            <div class="map"> 
+              <img src="../fotos/map.jpg" height="430" width="800">
+            </div>
+        </div>
+        <button class="buttonA"> A </button>
+        <button class="buttonB"> B </button>
       </div>
-      
-      <button class="buttonA"> A </button>
-      <button class="buttonB"> B </button>
-    </div>
-  </section>
+    </section>
 
-  <script src="./js/img.js"> </script>
-  <script src="./js/keyboard.js"> </script>
-  <script src="./js/link.js"> </script>
-  <script src="./js/map.js"> </script>
-  <script src="./js/camera.js"> </script>
-  <script src="./js/game.js"> </script>
-  <script src="./js/main.js"></script>
+    <script src="./js/img.js"> </script>
+    <script src="./js/keyboard.js"> </script>
+    <script src="./js/link.js"> </script>
+    <script src="./js/map.js"> </script>
+    <script src="./js/camera.js"> </script>
+    <script src="./js/game.js"> </script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

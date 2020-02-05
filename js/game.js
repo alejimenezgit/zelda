@@ -1,8 +1,8 @@
 class Game {
-    constructor(img, keyboards, map){
+    constructor(img, keyboards){
         this.img                    = img;
         this.keyboards          = keyboards;
-        this.map                = map;
+        this.map                = new map();
         this.ctx                = undefined;
         this.previousElapsed    = 0;
         this.link               = undefined;

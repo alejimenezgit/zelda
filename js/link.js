@@ -33,7 +33,6 @@ class link{
         var top = this.y - this.height / 2;
         var bottom = this.y + this.height / 2 - 1;
     
-        // check for collisions on sprite sides
         var collision =
             this.map.isSolidTileAtXY(left, top) ||
             this.map.isSolidTileAtXY(right, top) ||
@@ -46,24 +45,39 @@ class link{
             this.map.isEnemy(right, bottom) ||
             this.map.isEnemy(left, bottom);
 
-         if(enemy) { console.log('enemigo encontrado')}   
-        if (!collision) { return; }
-            
-        if (diry > 0) {
-            row = this.map.getRow(bottom);
-            this.y = -this.height / 2 + this.map.getY(row);
+        var rupee = 
+            this.map.isRupee(left, top) ||
+            this.map.isRupee(right, top) ||
+            this.map.isRupee(right, bottom) ||
+            this.map.isRupee(left, bottom);
+
+
+        if(enemy) { 
+            console.log('enemigo encontrado');
         }
-        else if (diry < 0) {
-            row = this.map.getRow(top);
-            this.y = this.height / 2 + this.map.getY(row + 1);
+        else if (rupee) { 
+            console.log('rupee encontrado');
         }
-        else if (dirx > 0) {
-            col = this.map.getCol(right);
-            this.x = -this.width / 2 + this.map.getX(col);
+        else if (collision) { 
+            if (diry > 0) {
+                row = this.map.getRow(bottom);
+                this.y = -this.height / 2 + this.map.getY(row);
+            }
+            else if (diry < 0) {
+                row = this.map.getRow(top);
+                this.y = this.height / 2 + this.map.getY(row + 1);
+            }
+            else if (dirx > 0) {
+                col = this.map.getCol(right);
+                this.x = -this.width / 2 + this.map.getX(col);
+            }
+            else if (dirx < 0) {
+                col = this.map.getCol(left);
+                this.x = this.width / 2 + this.map.getX(col + 1);
+            }
         }
-        else if (dirx < 0) {
-            col = this.map.getCol(left);
-            this.x = this.width / 2 + this.map.getX(col + 1);
+        else{
+            return;
         }
     };
 }

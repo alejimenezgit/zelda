@@ -86,11 +86,6 @@ body{
     left: 1200px;
 }
 
-.buttonA:active{
-
-    background-color: red;
-}
-
 .buttonB{
     background-color: grey;
     width: 50px;
@@ -108,8 +103,8 @@ body{
 
 .buttonsStartSelect{
     position: absolute;
-    top: 500px;
-    left: 80px;
+    top: 480px;
+    left: 50px;
 }
 
 .buttonSelect{
@@ -118,7 +113,7 @@ body{
     height: 20px;
     border-radius: 50%;
     float: right;
-    margin: 0px 0px 0px 30px;
+    margin: 0px 0px 0px 36px;
 }
 
 .buttonStart{
@@ -129,15 +124,29 @@ body{
     float: right;
 }
 
+.buttonRest{
+    background-color: grey;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: right;
+}
+
 #select{
     margin: 20px;
     font-family: 'Lobster';
-    font-size: 19px;
+    font-size: 25px;
 }
 
 #start {
     margin: 20px;
-    font-size: 19px;
+    font-size: 25px;
+    font-family: 'Lobster';
+}
+
+#restart{
+    margin: 20px;
+    font-size: 25px;
     font-family: 'Lobster';
 }
 
@@ -187,7 +196,6 @@ body{
 
 .box{
     background-color: grey;
-   /* margin: 10px; */
     padding: 10px;
     width: 26px;
     height: 29px;
@@ -247,37 +255,22 @@ td {
     transform: translate(-50%, -50%);
 }
 
-#buttonRest{
-    width: 100%;
-    position: relative;
-    top: 20px;
-    height: 100px;
-    background-image: linear-gradient(to right,white, #46a048 );
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin: 0px;
-}
-
-#buttonContinuar{
-    width: 100%;
-    position: relative;
-    top: 40px;
-    height: 100px;
-    background-image: linear-gradient(to right, #46a048 ,white);
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 12px;
-}
-
 .map{
     width: 800px;
     position: relative;
-    top: 70px;
+    top: 10px;
     left: 50px;
-    height: 270px;
+    height: 430px;
     background-color: lightgray;
     font-size: 16px;
     font-weight: bold;
+}
+
+.txtPause{
+    width: 100%;
+    height: 50px;
+    font-size: 40px;
+    font-family: 'Lobster';
+    text-align: center;
+    padding-top: 40px;
 }

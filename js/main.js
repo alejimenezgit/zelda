@@ -1,29 +1,25 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     
-    var context = document.getElementById('demo').getContext('2d');
-    var game = new Game(new imgs(), new keyboard() ,new map());
-
+    const context = document.getElementById('demo').getContext('2d');
     const startBtn = document.getElementById('start');
     const pauseBtn = document.getElementById('select');
-    const restBtn  = document.getElementById('buttonRest');
-    const contBtn  = document.getElementById('buttonContinuar');
+    const restBtn  = document.getElementById('restart');
 
     startBtn.addEventListener('click', start);
     pauseBtn.addEventListener('click', pause);
-    restBtn.addEventListener('click', start);
-    contBtn.addEventListener('click', cont);
+    restBtn.addEventListener('click', restart);
 
-    let demo = document.getElementById('demo');
-    let splash = document.getElementById('splash');
-    
-    let maker = document.getElementById('marker');
-    let pauseScreen = document.getElementById('pause');
+    const demo = document.getElementById('demo');
+    const splash = document.getElementById('splash');
+    const maker = document.getElementById('marker');
+    const pauseScreen = document.getElementById('pause');
 
     function start(){
         if(!splash.classList.contains('hidden')){
             demo.classList.remove('hidden');
             splash.classList.add('hidden');
             maker.classList.remove('hidden');
+            let game = new Game(new imgs(), new keyboard());
             game.run(context); 
         }
     }
@@ -42,7 +38,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    function cont(){
-        pauseScreen.classList.remove('hidden');
+    function restart() {
+        if(splash.classList.contains('hidden')){
+            demo.classList.remove('hidden');
+            splash.classList.add('hidden');
+            maker.classList.remove('hidden');
+            const game = new Game(new imgs(), new keyboard());
+            game.run(context); 
+        }
     }
 });
