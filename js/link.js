@@ -1,12 +1,14 @@
 class link{
     constructor(map, x, y, img){
-        this.map = map;
-        this.x = x;
-        this.y = y;
-        this.width = map.tsize;
+        this.map    = map;
+        this.x      = x;
+        this.y      = y;
+        this.width  = map.tsize;
         this.height = map.tsize;
-        this.image = img.getImage('hero');
-        this.speed = 256;                   //pixels por segundo
+        this.image  = img.getImage('hero');
+        this.speed  = 256;
+        this.life   = [1,2,3,4,5,6];
+        this.count  = 0;
     }
 
     move = function (delta, dirx, diry) {
@@ -53,7 +55,42 @@ class link{
 
 
         if(enemy) { 
-            console.log('enemigo encontrado');
+            
+            var firstHeart = document.getElementById('firstHeart');
+            var secondHeart = document.getElementById('secondHeart');
+            var thirdHeart = document.getElementById('thirdHeart');
+            this.count++;
+            if(this.count == 20){
+                this.life.pop();
+                switch (this.life.length){
+                    case 5:
+                        thirdHeart.src = "./fotos/halfheart.gif";
+                        this.count = 0;
+                        break;
+                    case 4:
+                        thirdHeart.classList.add('hidden');
+                        this.count = 0;
+                        break;
+                    case 3:
+                        secondHeart.src = "./fotos/halfheart.gif";
+                        this.count = 0;
+                        break;
+                    case 2:
+                        secondHeart.classList.add('hidden');
+                        this.count = 0;
+                        break;
+                    case 1:
+                        firstHeart.src = "./fotos/halfheart.gif";
+                        this.count = 0;
+                        break;
+                    case 0:
+                        demo.classList.add('hidden');
+                        break;
+                        
+                }
+            }
+
+            
         }
         else if (rupee) { 
             console.log('rupee encontrado');

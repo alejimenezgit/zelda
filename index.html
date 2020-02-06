@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="./style.css">
     <title>The Legend of Zelda</title>
   </head>
-
+  <source src="./musica/zelda-main-theme-song.mp3" autostart="true" loop="true"
+  width="2" height="0">
+  </embed>
   <body>
     <div class="titleGame">
       <img class="sizeTitleGame" src="./fotos/title.png"> 
@@ -36,10 +38,9 @@
         </section>
         <div class="hidden" id="marker">
           <div class="hearts">
-            <img class="heart" src="./fotos/heart.gif">
-            <img class="heart" src="./fotos/heart.gif">
-            <img class="heart" src="./fotos/heart.gif">
-            <img class="heart" src="./fotos/halfheart.gif">
+            <img id="firstHeart" class="heart" src="./fotos/heart.gif">
+            <img id="secondHeart" class="heart" src="./fotos/heart.gif">
+            <img id="thirdHeart" class="heart" src="./fotos/heart.gif">
           </div>
           <div class="rupees">
             <label class="countRupees"> 0 </label>
@@ -50,13 +51,16 @@
         <div id="splash">
           <label class="startKey">  Start (Press the button Start) </label>
         </div>
+        <div id="gameover" class="hidden">
+          <img src="../fotos/gameover.jpg" width="900" height="580">
+        </div>
         <div id="pause" class="hidden">
             <div class="txtPause"> Pause </div>
             <div class="map"> 
               <img src="../fotos/map.jpg" height="430" width="800">
             </div>
         </div>
-        <button class="buttonA"> A </button>
+        <button class="buttonA"> A </button>  
         <button class="buttonB"> B </button>
       </div>
     </section>

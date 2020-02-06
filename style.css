@@ -274,3 +274,15 @@ td {
     text-align: center;
     padding-top: 40px;
 }
+
+.gameover{
+    width: 900px;
+    height: 580px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 0px auto 0px auto;
+    position: absolute;
+    top: 49.2%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}

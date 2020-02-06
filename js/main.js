@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             splash.classList.add('hidden');
             maker.classList.remove('hidden');
             const game = new Game(new imgs(), new keyboard());
+            var rupe = document.getElementsByClassName('countRupees');
+            rupe[0].innerHTML = 0;
             game.run(context); 
         }
     }

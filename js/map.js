@@ -64,7 +64,7 @@ class map{
         return this.layers.reduce(function (res, layer, index) {
             var tile = this.getTile(index, column, rowt);
             if(tile === 9){ 
-             //   document.getElementsByClassName('countRupees');
+                enemy = true;
             };
             return res || enemy;
         }.bind(this), false);
@@ -83,7 +83,7 @@ class map{
                 this.layers[1][rowt * this.cols + column] = 0;
             }else if(tile === 8){
                 rupee = true;
-                rupe[0].innerHTML += 5;
+                rupe[0].innerHTML =  parseInt(rupe[0].innerHTML) + 5;
                 this.layers[1][rowt * this.cols + column] = 0;
             }
             return res || rupee;
