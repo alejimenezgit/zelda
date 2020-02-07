@@ -6,7 +6,7 @@ class link{
         this.width  = map.tsize;
         this.height = map.tsize;
         this.image  = img.getImage('hero');
-        this.speed  = 256;
+        this.speed  = 656; // 256
         this.life   = [1,2,3,4,5,6];
         this.count  = 0;
     }
@@ -86,14 +86,8 @@ class link{
                     case 0:
                         demo.classList.add('hidden');
                         break;
-                        
                 }
             }
-
-            
-        }
-        else if (rupee) { 
-            console.log('rupee encontrado');
         }
         else if (collision) { 
             if (diry > 0) {
