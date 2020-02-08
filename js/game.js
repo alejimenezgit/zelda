@@ -35,11 +35,11 @@ class Game {
 
     load = function () {
         return [
-            this.img.loadImage('tiles', '../fotos/tiles.png'),
-            this.img.loadImage('hero', '../fotos/zelda.gif'),
-            this.img.loadImage('heroturn', '../fotos/turnzelda.gif'),
-            this.img.loadImage('heroright', '../fotos/rightzelda.gif'),
-            this.img.loadImage('heroleft', '../fotos/leftzelda.gif')
+            this.img.loadImage('tiles', './fotos/tiles.png'),
+            this.img.loadImage('hero', './fotos/zelda.gif'),
+            this.img.loadImage('heroturn', './fotos/turnzelda.gif'),
+            this.img.loadImage('heroright', './fotos/rightzelda.gif'),
+            this.img.loadImage('heroleft', './fotos/leftzelda.gif')
         ];
     };
 
