@@ -103,7 +103,7 @@ body{
 
 .buttonsStartSelect{
     position: absolute;
-    top: 480px;
+    top: 440px;
     left: 50px;
 }
 
@@ -130,6 +130,14 @@ body{
     height: 20px;
     border-radius: 50%;
     float: right;
+}
+
+.buttonmusic{
+    background-color: grey;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    float: right; 
 }
 
 #select{
@@ -275,14 +283,36 @@ td {
     padding-top: 40px;
 }
 
-.gameover{
+#gameover{
     width: 900px;
     height: 580px;
     background-color: white;
     border-radius: 10px;
-    margin: 0px auto 0px auto;
-    position: absolute;
-    top: 49.2%;
+    position: relative;
+    top: 49.9%;
     left: 50%;
     transform: translate(-50%, -50%); 
+}
+
+#musicid{
+    margin: 20px;
+    font-size: 25px;
+    font-family: 'Lobster';
+}
+
+.key{
+    position: relative;
+    left: 180px;
+    bottom: 5px;
+}
+
+#finishgame{
+    width: 900px;
+    height: 580px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 49.9%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +9,12 @@
     <link rel="stylesheet" href="./style.css">
     <title>The Legend of Zelda</title>
   </head>
-  <source id src="./musica/zelda-main-theme-song.mp3" autostart="true" loop="true" width="2" height="0">
-  </embed>
+  <audio class="hidden" controls id="musicInit" >
+    <source src="./musica/init.mp3" type="audio/ogg">
+  </audio>
+    <audio class="hidden" controls id="audio" >
+      <source src="./musica/zelda-main-theme-song.mp3" type="audio/ogg">
+    </audio>
   <body>
     <div class="titleGame">
       <img class="sizeTitleGame" src="./fotos/title.png"> 
@@ -34,12 +37,19 @@
             <label> Restart </label>
             <button class="buttonRest"></button>
           </div>
+          <div id="musicid">
+            <label> Music </label>
+            <button class="buttonmusic"></button>
+          </div>
         </section>
         <div class="hidden" id="marker">
           <div class="hearts">
             <img id="firstHeart" class="heart" src="./fotos/heart.gif">
             <img id="secondHeart" class="heart" src="./fotos/heart.gif">
             <img id="thirdHeart" class="heart" src="./fotos/heart.gif">
+          </div>
+          <div class="key hidden">
+            <img src="./fotos/key.gif">
           </div>
           <div class="rupees">
             <label class="countRupees"> 0 </label>
@@ -53,6 +63,9 @@
         <div id="gameover" class="hidden">
           <img src="../fotos/gameover.jpg" width="900" height="580">
         </div>
+        <div id="finishgame" class="hidden">
+          <img src="../fotos/finish.jpg" width="900" height="580">
+        </div>
         <div id="pause" class="hidden">
             <div class="txtPause"> Pause </div>
             <div class="map"> 
@@ -63,7 +76,6 @@
         <button class="buttonB"> B </button>
       </div>
     </section>
-
     <script src="./js/img.js"> </script>
     <script src="./js/keyboard.js"> </script>
     <script src="./js/link.js"> </script>

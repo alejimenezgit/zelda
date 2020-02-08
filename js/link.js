@@ -52,10 +52,21 @@ class link{
             this.map.isRupee(right, top) ||
             this.map.isRupee(right, bottom) ||
             this.map.isRupee(left, bottom);
+        
+        var key = 
+            this.map.iskey(left, top) ||
+            this.map.iskey(right, top) ||
+            this.map.iskey(right, bottom) ||
+            this.map.iskey(left, bottom);
+
+        var zelda = 
+            this.map.isZelda(left, top) ||
+            this.map.isZelda(right, top) ||
+            this.map.isZelda(right, bottom) ||
+            this.map.isZelda(left, bottom);
 
 
         if(enemy) { 
-            
             var firstHeart = document.getElementById('firstHeart');
             var secondHeart = document.getElementById('secondHeart');
             var thirdHeart = document.getElementById('thirdHeart');
@@ -84,7 +95,8 @@ class link{
                         this.count = 0;
                         break;
                     case 0:
-                        demo.classList.add('hidden');
+                        var gameover = document.getElementById('gameover');
+                        gameover.classList.remove('hidden');
                         break;
                 }
             }

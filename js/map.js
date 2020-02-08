@@ -36,7 +36,7 @@ class map{
             4, 4, 3, 0, 0, 0, 0, 0, 0, 6, 6, 6, 6, 6, 5, 4, 0, 14, 13, 13, 13, 0, 0, 0, 0, 0, 0, 0,
             4, 3, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 7, 0, 0, 14, 13, 13, 13, 0, 0, 0, 0, 0, 0, 0,
             4, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 14, 13, 13, 13, 0, 0, 0, 0, 0, 0, 10,
-            4, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 14, 13, 13, 13, 0, 0, 0, 0, 0, 0, 0,
+            4, 0, 5, 0, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 9, 4, 0, 14, 13, 13, 13, 0, 0, 0, 0, 0, 0, 0,
             4, 0, 0, 0, 0, 0, 0, 3, 0, 0, 5, 3, 0, 0, 7, 4, 0, 14, 13, 13, 13, 0, 0, 0, 0, 0, 0, 0,
             4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 14, 13, 13, 13, 0, 0, 0, 0, 0, 0, 0,
             4, 0, 0, 4, 0, 0, 4, 0, 5, 6, 0, 0, 5, 0, 0, 4, 0, 14, 13, 13, 13, 0, 0, 0, 0, 0, 0, 0,
@@ -82,6 +82,7 @@ class map{
         return this.layers.reduce(function (res, layer, index) {
             var tile = this.getTile(index, column, rowt);
             if(tile === 9){ 
+                console.log(tile);
                 enemy = true;
             };
             return res || enemy;
@@ -105,6 +106,39 @@ class map{
                 this.layers[1][rowt * this.cols + column] = 0;
             }
             return res || rupee;
+        }.bind(this), false);
+    }
+
+    iskey = function (x,y) {
+        var column = Math.floor(x / this.tsize);
+        var rowt = Math.floor(y / this.tsize);
+        var key = false;
+        return this.layers.reduce(function (res, layer, index) {
+            var tile = this.getTile(index, column, rowt);
+            var keyMaker = document.getElementsByClassName('key');
+            if(tile === 11){ 
+                key = true;
+                this.layers[1][rowt * this.cols + column] = 0;
+                keyMaker[0].classList.remove('hidden');
+                this.layers[1][182] = 0;
+                this.layers[1][210] = 0;
+            }
+            return res || key;
+        }.bind(this), false);
+    }
+
+    isZelda = function (x,y) {
+        var column = Math.floor(x / this.tsize);
+        var rowt = Math.floor(y / this.tsize);
+        var zelda = false;
+        return this.layers.reduce(function (res, layer, index) {
+            var tile = this.getTile(index, column, rowt);
+            if(tile === 10){ 
+                zelda = true;
+                var finish = document.getElementById('finishgame');
+                finish.classList.remove('hidden');
+            }
+            return res || zelda;
         }.bind(this), false);
     }
 
