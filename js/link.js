@@ -6,20 +6,17 @@ class link{
         this.width  = map.tsize;
         this.height = map.tsize;
         this.image  = img.getImage('hero');
-        this.speed  = 656; // 256
+        this.speed  = 3000;
         this.life   = [1,2,3,4,5,6];
         this.count  = 0;
     }
 
     move = function (delta, dirx, diry) {
-        // move hero
         this.x += dirx * this.speed * delta;
         this.y += diry * this.speed * delta;
     
-        // check if we walked into a non-walkable tile
         this._collide(dirx, diry);
     
-        // clamp values
         var maxX = this.map.cols * this.map.tsize;
         var maxY = this.map.rows * this.map.tsize;
         this.x = Math.max(0, Math.min(this.x, maxX));
@@ -28,8 +25,6 @@ class link{
 
     _collide = function (dirx, diry) {
         var row, col;
-        // -1 in right and bottom is because image ranges from 0..63
-        // and not up to 64
         var left = this.x - this.width / 2 ;
         var right = this.x + this.width / 2 - 1;
         var top = this.y - this.height / 2;

@@ -25,15 +25,10 @@ class Game {
 
     tick = function (elapsed) {
         window.requestAnimationFrame(this.tick);
-    
-        // clear previous frame
         this.ctx.clearRect(0, 0, 832, 515);
-    
-        // compute delta time in seconds -- also cap it
         var delta = (elapsed - this._previousElapsed) / 1000.0;
-        delta = Math.min(delta, 0.25); // maximum delta of 250 ms
+        delta = Math.min(delta, 0.25); 
         this._previousElapsed = elapsed;
-    
         this.update(delta);
         this.render();
     }.bind(this);
@@ -119,30 +114,3 @@ class Game {
         this.drawLayer(1);
     }.bind(this);
 }
-
-/*
-        this.drawGrid();
-    _drawGrid = function () {
-        var width = map.cols * map.tsize;
-        var height = map.rows * map.tsize;
-        var x, y;
-        for (var r = 0; r < map.rows; r++) {
-            x = - this.camera.x;
-            y = r * map.tsize - this.camera.y;
-            this.ctx.beginPath();
-            this.ctx.moveTo(x, y);
-            this.ctx.lineTo(width, y);
-            this.ctx.stroke();
-        }
-        for (var c = 0; c < map.cols; c++) {
-            x = c * map.tsize - this.camera.x;
-            y = - this.camera.y;
-            this.ctx.beginPath();
-            this.ctx.moveTo(x, y);
-            this.ctx.lineTo(x, height);
-            this.ctx.stroke();
-        }
-    }.bind(this);
-
-
-*/

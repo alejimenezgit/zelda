@@ -70,7 +70,6 @@ class map{
         return this.layers.reduce(function (res, layer, index) {
             var tile = this.getTile(index, column, rowt);
             var isSolid = tile === 3 || tile === 5 || tile === 7 || tile === 12;
-
             return res || isSolid;
         }.bind(this), false);
     };
